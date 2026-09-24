@@ -6,7 +6,7 @@ export const createProduct = async (req,res) => {
             const {name,description,price,stock,categoryId,images} = req.body
 
     if(!name||!description||!price == null ||!categoryId){
-        res.status(400).json({message:"missing required fields"})
+        return res.status(400).json({message:"missing required fields"})
     }
 
     const imagesUrls = req.files ? req.files.map((file)=>file.path) : [];
